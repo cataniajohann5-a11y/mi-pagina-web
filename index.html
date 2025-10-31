@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Construcciones Calcagno | Especialistas en Pladur</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --gris: #1f1f1f;
+      --gris-claro: #2e2e2e;
+      --amarillo: #f7c800;
+      --texto: #f4f4f4;
+      --fondo: #121212;
+      --ancho-max: 1100px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--gris);
+      padding: 20px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .container {
+      max-width: var(--ancho-max);
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--amarillo);
+      letter-spacing: 1px;
+    }
+
+    .logo svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--amarillo);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--texto);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--amarillo);
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      color: var(--amarillo);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      background-color: var(--amarillo);
+      color: var(--gris);
+      border: none;
+      padding: 12px 25px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #ffd900;
+    }
+
+    /* SECCIONES */
+    section {
+      padding: 70px 20px;
+    }
+
+    section h2 {
+      color: var(--amarillo);
+      text-align: center;
+      margin-bottom: 15px;
+      font-size: 2rem;
+    }
+
+    section p {
+      text-align: center;
+      color: #ccc;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* QUIENES SOMOS */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about img {
+      width: 420px;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.5);
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .about-text h3 {
+      color: var(--amarillo);
+      margin-bottom: 10px;
+    }
+
+    /* SERVICIOS */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .service {
+      background-color: var(--gris-claro);
+      padding: 25px;
+      border-radius: 6px;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.5);
+    }
+
+    .service h4 {
+      color: var(--amarillo);
+      margin-bottom: 10px;
+    }
+
+    /* PROYECTOS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      height: 220px;
+    }
+
+    .project img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(80%);
+      transition: filter 0.3s;
+    }
+
+    .project:hover img {
+      filter: brightness(100%);
+    }
+
+    .project-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background: rgba(0,0,0,0.6);
+      color: var(--amarillo);
+      font-weight: 600;
+    }
+
+    /* CONTACTO */
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background-color: var(--gris-claro);
+      color: white;
+      font-size: 1rem;
+      resize: none;
+    }
+
+    footer {
+      background-color: var(--gris);
+      color: #bbb;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .about { flex-direction: column; text-align: center; }
+      .about img { width: 100%; max-width: 400px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <!-- Ícono de casco de obra en SVG -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M256 16C132.3 16 32 116.3 32 240v96c0 26.5 21.5 48 48 48h16v-64h320v64h16c26.5 0 48-21.5 48-48v-96C480 116.3 379.7 16 256 16zm0 64c92.6 0 168 75.4 168 168H88c0-92.6 75.4-168 168-168z"/>
+          </svg>
+          Construcciones Calcagno
+        </div>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#nosotros">Quiénes Somos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <h1>Profesionales en Pladur y Acabados</h1>
+    <p>En <strong>Construcciones Calcagno</strong> somos especialistas en tabiquería, falsos techos, aislamiento y todo tipo de trabajos en Pladur. Calidad, compromiso y eficiencia en cada obra.</p>
+    <button class="btn" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">Solicitar presupuesto</button>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="nosotros">
+    <h2>Quiénes Somos</h2>
+    <p>Más de 10 años de experiencia en el sector de la construcción nos avalan. Nos dedicamos a ofrecer soluciones en pladur con acabados profesionales y materiales de primera calidad.</p>
+    <div class="about container">
+      <img src="https://images.unsplash.com/photo-1590080875839-311c86a56c83?auto=format&fit=crop&w=800&q=80" alt="Equipo de trabajo">
+      <div class="about-text">
+        <h3>Nuestro compromiso</h3>
+        <p>Nos enorgullece cumplir los plazos, mantener la limpieza en obra y garantizar la satisfacción de nuestros clientes. Trabajamos tanto para particulares como para empresas y constructoras.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="services container">
+      <div class="service"><h4>Tabiquería de Pladur</h4><p>Instalación de tabiques, trasdosados y sistemas de aislamiento térmico y acústico.</p></div>
+      <div class="service"><h4>Falsos techos</h4><p>Montaje de techos continuos y registrables para viviendas y locales.</p></div>
+      <div class="service"><h4>Decoraciones</h4><p>Diseños en techos y molduras para interiores modernos y funcionales.</p></div>
+      <div class="service"><h4>Reformas integrales</h4><p>Coordinamos todos los gremios para ofrecerte un servicio completo.</p></div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos">
+    <h2>Proyectos Realizados</h2>
+    <div class="projects container">
+      <div class="project"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80"><div class="project-title">Vivienda unifamiliar</div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1581093588401-22e8d9f1c8f4?auto=format&fit=crop&w=800&q=80"><div class="project-title">Local comercial</div></div>
+      <div class="project"><img src="https://images.unsplash.com/photo-1560184897-502a475e3f73?auto=format&fit=crop&w=800&q=80"><div class="project-title">Oficina moderna</div></div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Solicita tu presupuesto sin compromiso. Te responderemos lo antes posible.</p>
+    <form action="https://formspree.io/f/your_form_id" method="POST">
+      <input type="text" name="nombre" placeholder="Nombre" required />
+      <input type="email" name="_replyto" placeholder="Correo electrónico" required />
+      <textarea name="mensaje" placeholder="Mensaje" rows="5" required></textarea>
+      <button type="submit" class="btn">Enviar mensaje</button>
+    </form>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Construcciones Calcagno — Todos los derechos reservados
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
